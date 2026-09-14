@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ANDYJJE ANIMAL RESCUE ORGANISATION</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.60),
+          rgba(0, 0, 0, 0.70)
+        ),
+        url("IMG-20260911-WA0007.jpg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 18px;
+      margin-bottom: 20px;
+
+      color: white;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 50px;
+
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      color: white;
+      font-size: clamp(35px, 6vw, 65px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 0 auto 35px;
+
+      color: #eeeeee;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    /* DONATION BOX */
+    .donation-box {
+      max-width: 650px;
+      margin: auto;
+
+      padding: 30px;
+
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
+
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+
+      text-align: left;
+    }
+
+    .amount-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 12px;
+    }
+
+    .raised {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .goal {
+      color: #666;
+      font-weight: bold;
+    }
+
+    /* PROGRESS BAR */
+    .progress-container {
+      width: 100%;
+      height: 18px;
+
+      background: #e5e5e5;
+
+      border-radius: 50px;
+
+      overflow: hidden;
+
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+
+      background: linear-gradient(
+        90deg,
+        #16a085,
+        #27ae60
+      );
+
+      border-radius: 50px;
+
+      transition: width 1s ease;
+    }
+
+    .percentage {
+      color: #666;
+      font-size: 14px;
+
+      margin-bottom: 22px;
+    }
+
+    /* DONATE BUTTON */
+    .donate-button {
+      display: block;
+
+      width: 100%;
+
+      padding: 16px;
+
+      background: #16a085;
+      color: white;
+
+      text-decoration: none;
+
+      text-align: center;
+
+      border-radius: 10px;
+
+      font-size: 18px;
+      font-weight: bold;
+
+      transition: 0.2s;
+    }
+
+    .donate-button:hover {
+      background: #12806a;
+      transform: translateY(-2px);
+    }
+
+    /* STORY */
+    .story-section {
+      background: white;
+
+      padding: 70px 20px;
+    }
+
+    .story {
+      max-width: 800px;
+      margin: auto;
+
+      text-align: center;
+    }
+
+    .story h2 {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .story p {
+      color: #555;
+
+      font-size: 18px;
+
+      line-height: 1.9;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #171717;
+
+      color: #aaa;
+
+      text-align: center;
+
+      padding: 25px 20px;
+
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+
+      .hero {
+        padding: 30px 15px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .donation-box {
+        padding: 22px 18px;
+      }
+
+      .amount-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+
+      .raised {
+        font-size: 23px;
+      }
+
+      .story-section {
+        padding: 55px 20px;
+      }
+
+      .story h2 {
+        font-size: 29px;
+      }
+
+      .story p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="badge">
+        Animal Rescue • Uganda
+      </div>
+
+      <h1>
+        ANDYJJE ANIMAL RESCUE ORGANISATION
+      </h1>
+
+      <p class="subtitle">
+        Help us provide food, shelter and veterinary care
+        for animals who desperately need it.
+      </p>
+
+
+      <!-- DONATION PROGRESS -->
+      <div class="donation-box">
+
+        <div class="amount-row">
+
+          <div class="raised">
+            $<span id="raisedAmount">0</span> raised
+          </div>
+
+          <div class="goal">
+            Goal: $<span id="goalAmount">1,000</span>
+          </div>
+
+        </div>
+
+
+        <div class="progress-container">
+
+          <div
+            class="progress-bar"
+            id="progressBar">
+          </div>
+
+        </div>
+
+
+        <div class="percentage">
+
+          <span id="percentage">0</span>%
+          of our goal reached
+
+        </div>
+
+
+        <!-- PAYPAL DONATION BUTTON -->
+
+        <a
+          href="https://www.paypal.com/donate/?hosted_button_id=PQH6TRKJPQ8EY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="donate-button">
+
+          ❤️ Donate Now
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STORY -->
+
+  <section class="story-section">
+
+    <div class="story">
+
+      <h2>
+        Our Story
+      </h2>
+
+      <p>
+        I run a registered charity organization in Uganda
+        dedicated to helping animals in need. We care for over
+        100 dogs and cats, providing food, shelter, and
+        veterinary care. We urgently need your support to
+        continue saving these vulnerable lives. Every donation
+        makes a difference.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 ANDYJJE ANIMAL RESCUE ORGANISATION.
+    Every life matters.
+
+  </footer>
+
+
+  <!-- =====================================================
+       DONATION SETTINGS
+       ONLY CHANGE THESE NUMBERS WHEN YOU RECEIVE DONATIONS
+       ===================================================== -->
+
+  <script>
+
+    // Amount currently raised
+    const raised = 450;
+
+    // Fundraising goal
+    const goal = 2000;
+
+
+    // Calculate percentage
+    const percentage = Math.min(
+      (raised / goal) * 100,
+      100
+    );
+
+
+    // Display amounts
+    document.getElementById("raisedAmount").textContent =
+      raised.toLocaleString();
+
+    document.getElementById("goalAmount").textContent =
+      goal.toLocaleString();
+
+
+    // Display percentage
+    document.getElementById("percentage").textContent =
+      percentage.toFixed(0);
+
+
+    // Set progress bar width
+    document.getElementById("progressBar").style.width =
+      percentage + "%";
+
+  </script>
+
+</body>
+</html>
